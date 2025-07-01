@@ -28,8 +28,7 @@ class Player(CircleShape):
         
     
     def update(self, dt):
-        keys = pygame.key.get_pressed()
-        self.shotclock -= dt
+        keys = pygame.key.get_pressed() 
 
         if keys[pygame.K_a]:
             self.rotate(-dt)
@@ -39,6 +38,9 @@ class Player(CircleShape):
             self.move(dt)
         if keys[pygame.K_s]:
             self.move(-dt)
+
+        #shooting stuff
+        self.shotclock -= dt
         if keys[pygame.K_SPACE]:
             if self.shotclock <= 0:
                 self.shoot()
